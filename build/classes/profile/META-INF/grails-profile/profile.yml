@@ -1,0 +1,9 @@
+description: A profile for creating applications using AngularJS
+features:
+  defaults:
+  - hibernate
+  - asset-pipeline
+  provided:
+  - angular1
+name: angular
+extends: web
