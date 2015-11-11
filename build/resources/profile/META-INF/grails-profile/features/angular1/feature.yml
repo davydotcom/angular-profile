@@ -1,4 +1,0 @@
-description: AngularJS 1.x
-dependencies:
-    runtime:
-        - "com.craigburke.angular:angular-annotate-asset-pipeline:2.3.0"
