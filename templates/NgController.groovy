@@ -1,6 +1,8 @@
-angular.module("${packageName}")
-    .controller("${className}", ${className});
+(function() {
+    angular.module("${packageName}")
+            .controller("${className}", ${className});
 
-function ${className}() {
-    var ctrl = this;
-}
+    function ${className}() {
+        var ctrl = this;
+    }
+})();
