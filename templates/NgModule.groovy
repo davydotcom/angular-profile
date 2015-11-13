@@ -10,12 +10,12 @@
 (function() {
     'use strict';
 
-    angular.module('@grails.codegen.defaultPackage@', [])
-        .constant('contextPath', window.contextPath)
-        .config(function ($httpProvider) {
-            $httpProvider.defaults.headers.common['X-Requested-With'] = "XMLHttpRequest";
-            $httpProvider.interceptors.push(httpRequestInterceptor);
-        });
+    angular.module("${propertyName}", ['ngResource'])
+           .constant('contextPath', window.contextPath)
+           .config(function (\$httpProvider) {
+        \$httpProvider.defaults.headers.common['X-Requested-With'] = "XMLHttpRequest";
+        \$httpProvider.interceptors.push(httpRequestInterceptor);
+    });
 
     function httpRequestInterceptor(contextPath) {
         return {

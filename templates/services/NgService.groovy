@@ -3,10 +3,12 @@
 
     angular
         .module("${packageName}")
-        .controller("${name}", ${name});
+        .service("${name}", ${name});
 
     function ${name}() {
-        var vm = this;
+        /*this.exampleFunction = function() {
+
+        };*/
     }
 
 })();

@@ -3,10 +3,15 @@
 
     angular
         .module("${packageName}")
-        .controller("${name}", ${name});
+        .provider("${name}", ${name});
 
     function ${name}() {
-        var vm = this;
+        return {
+            \$get: function() {
+
+            }
+        };
     }
 
 })();
+

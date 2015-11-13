@@ -3,10 +3,12 @@
 
     angular
         .module("${packageName}")
-        .controller("${name}", ${name});
+        .factory("${name}", ${name});
 
     function ${name}() {
-        var vm = this;
+        /*return function() {
+
+        };*/
     }
 
 })();
