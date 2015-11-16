@@ -9,9 +9,14 @@ description( "Creates an Angular controller" ) {
 def model = model(args[0])
 boolean overwrite = flag('force')
 
-String type = "Controller"
+final String type = "Controller"
+
+final String basePath = "grails-app/assets/javascripts/${model.packagePath}"
+if (!file(basePath).exists()) {
+    createNgModule(args[0])
+}
 
 render template: template('NgController.groovy'),
-       destination: file("grails-app/assets/javascripts/${model.packagePath}/controllers/${model.propertyName}${type}.js"),
+       destination: file("${basePath}/controllers/${model.propertyName}${type}.js"),
        model: [packageName: model.packageName, name: model.convention(type)],
        overwrite: overwrite

@@ -10,7 +10,12 @@ description( "Creates an Angular domain" ) {
 def model = model(args[0])
 boolean overwrite = flag('force')
 
+final String basePath = "grails-app/assets/javascripts/${model.packagePath}"
+if (!file(basePath).exists()) {
+    createNgModule(args[0])
+}
+
 render template: template("NgDomain.groovy"),
-       destination: file("grails-app/assets/javascripts/${model.packagePath}/domain/${model.className}.js"),
+       destination: file("${basePath}/domain/${model.className}.js"),
        model: model,
        overwrite: overwrite

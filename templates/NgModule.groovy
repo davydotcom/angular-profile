@@ -10,7 +10,7 @@
 (function() {
     'use strict';
 
-    angular.module("${propertyName}", ['ngResource'])
+    angular.module("${propertyName}", ["ngResource"])
            .constant('contextPath', window.contextPath)
            .config(function (\$httpProvider) {
         \$httpProvider.defaults.headers.common['X-Requested-With'] = "XMLHttpRequest";

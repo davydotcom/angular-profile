@@ -1,13 +1,15 @@
 description: A profile for creating applications using AngularJS
 features:
     defaults:
+        - hibernate
         - asset-pipeline
 build:
     plugins:
         - org.grails.grails-gsp
-        - war
 repositories:
     - "http://localhost:8081/artifactory/libs-snapshot-local"
 dependencies:
     profile:
         - "org.grails.profiles:angular:1.0.0-SNAPSHOT"
+    compile:
+        - "org.grails:grails-plugin-gsp"

@@ -11,14 +11,19 @@ description( "Creates an Angular service" ) {
 def model = model(args[0])
 boolean overwrite = flag('force')
 
-String type = MetaClassHelper.capitalize(flag('type') ?: "factory")
+final String type = MetaClassHelper.capitalize(flag('type') ?: "factory")
 String name = model.propertyName + type
 
 if (["Constant", "Value"].contains(type)) {
     name = model.propertyName
 }
 
+final String basePath = "grails-app/assets/javascripts/${model.packagePath}"
+if (!file(basePath).exists()) {
+    createNgModule(args[0])
+}
+
 render template: template("services/Ng${type}.groovy"),
-       destination: file("grails-app/assets/javascripts/${model.packagePath}/services/${name}.js"),
+       destination: file("${basePath}/services/${name}.js"),
        model: [packageName: model.packageName, name: name],
        overwrite: overwrite

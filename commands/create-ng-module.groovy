@@ -9,14 +9,14 @@ description( "Creates an Angular module" ) {
 def model = model(args[0])
 boolean overwrite = flag('force')
 
-String folder = "grails-app/assets/javascripts/${model.packagePath}/${model.propertyName}/"
+final String folder = "grails-app/assets/javascripts/${model.packagePath}"
 
 render template: template('NgModule.groovy'),
-       destination: file("${folder}${model.propertyName}.js"),
+       destination: file("${folder}/${model.propertyName}.js"),
        model: model,
        overwrite: overwrite
 
 ["controllers", "directives", "domain", "services", "templates"].each {
-    fileSystemInteraction.mkdir "${folder}${it}"
+    fileSystemInteraction.mkdir "${folder}/${it}"
 }
 
